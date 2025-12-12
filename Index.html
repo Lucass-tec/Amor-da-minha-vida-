@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para a Deh 💜</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3baf8, #f9d6e7, #b7e8f2);
+      color: #4b2b63;
+      text-align: center;
+      padding: 40px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      color: #6a2d91;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+    .flowers {
+      margin: 30px auto;
+      font-size: 2.5em;
+    }
+
+    button {
+      background-color: #c187f7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #9f6adf;
+      transform: scale(1.05);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #673ab7;
+      display: none;
+    }
+
+    .cute-message {
+      margin-top: 25px;
+      font-size: 1.3em;
+      color: #8c46d9;
+      font-weight: bold;
+      min-height: 40px;
+    }
+
+    /* Corações flutuando */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 22px;
+      color: #ff7bd8;
+      animation: subir 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes subir {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh) translateX(20px); opacity: 0; }
+    }
+
+    /* Flores caindo */
+    .falling-flower {
+      position: fixed;
+      top: -50px;
+      font-size: 28px;
+      animation: cair 7s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes cair {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>💜 Para minha Deh 💜</h1>
+  <div class="flowers">🌷🌹🌻🌷🌹🌻🌷</div>
+
+  <p>Deh, eu quero te dizer que eu te amo muito. 💖  
+  Você é uma das pessoas mais especiais do mundo pra mim, e eu quero construir um futuro ao seu lado, fazer de tudo pra te ver sorrir e ser a mulher mais feliz do mundo.</p>
+
+  <p>Eu só preciso de você e de mais ninguém.  
+  Prometo lutar contra qualquer dificuldade, proteger você de tudo e de todos que tentarem te ferir. 🌸  
+  Você é o meu motivo, o meu amor e o meu coração.</p>
+
+  <p>Por favor, nunca deixe de me mandar mensagem, tá?  
+  Eu não consigo ficar sem falar com você nem por um momento…  
+  Então me promete que vai continuar sendo você mesma comigo? 💞</p>
+
+  <h2>Você me ama muito? 💌</h2>
+  <button onclick="responderSim()">Sim 💖</button>
+  <button onclick="responderNao()">Não 😢</button>
+
+  <div id="mensagem" class="message"></div>
+
+  <h3>Você teria algo pra me dizer com todo o seu coração?  
+  Se sim, me manda por mensagem... quero ouvir tudo o que o seu coração quiser falar. 💬</h3>
+
+  <h2 style="margin-top: 40px;">Mensagens fofas pra você 🌸💜</h2>
+
+  <button onclick="mensagemFofa(0)">💌 Clique para ver</button>
+  <button onclick="mensagemFofa(1)">🌸 Mensagem especial</button>
+  <button onclick="mensagemFofa(2)">💖 Mais uma pra você</button>
+  <button onclick="mensagemFofa(3)">💞 Porque eu te amo</button>
+
+  <div id="cuteBox" class="cute-message"></div>
+
+  <div class="flowers">🌻🌷🌹🌸🌷🌻🌹</div>
+
+  <script>
+    function responderSim() {
+      const msg = document.getElementById('mensagem');
+      msg.innerHTML = "Eu sabia! 💜 Você é o amor da minha vida, Deh 💞";
+      msg.style.display = 'block';
+    }
+
+    function responderNao() {
+      const msg = document.getElementById('mensagem');
+      msg.innerHTML = "Ah... 😢 Mas mesmo assim eu ainda te amo e vou lutar por você 💘";
+      msg.style.display = 'block';
+    }
+
+    // Mensagens fofas
+    const mensagens = [
+      "Você é a coisa mais linda que já aconteceu na minha vida. 💜",
+      "Eu penso em você o tempo todo… você mora dentro do meu coração. 💞",
+      "O seu sorriso é a minha parte favorita do dia. 🌸",
+      "Eu te amo mais do que eu consigo explicar com palavras, Deh. 💖"
+    ];
+
+    function mensagemFofa(i) {
+      const box = document.getElementById("cuteBox");
+      box.innerHTML = mensagens[i];
+    }
+
+    // Criar corações animados
+    function criarCoracao() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    // Criar flores caindo
+    function criarFlor() {
+      const flower = document.createElement('div');
+      flower.classList.add('falling-flower');
+
+      const flores = ["🌷", "🌹", "🌻", "🌸"];
+      flower.innerHTML = flores[Math.floor(Math.random() * flores.length)];
+
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 8000);
+    }
+
+    setInterval(criarCoracao, 800);
+    setInterval(criarFlor, 1500);
+  </script>
+
+</body>
+</html>
